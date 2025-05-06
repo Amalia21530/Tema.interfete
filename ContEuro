@@ -1,0 +1,14 @@
+public class ContEuro extends ContBancar {
+    public ContEuro(String numarCont, float suma) {
+        super(numarCont, suma);
+    }
+
+    public float getDobanda() {
+        return getSuma() > 500 ? 0.3f : 0f;
+    }
+
+    @Override
+    public float getSumaTotala() {
+        return getSuma() * 36.0f;
+    }
+}
