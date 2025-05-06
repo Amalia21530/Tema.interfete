@@ -1,0 +1,31 @@
+public class Banca {
+    private String codBanca;
+    private Client[] clienti;
+    private int nrClienti;
+
+    public Banca(String codBanca) {
+        this.codBanca = codBanca;
+        this.clienti = new Client[100]; 
+        this.nrClienti = 0;
+    }
+
+    public void add(Client c) {
+        for (int i = 0; i < nrClienti; i++) {
+            if (clienti[i].getNume().equals(c.getNume())) {
+                System.out.println("Clientul este deja înregistrat.");
+                return;
+            }
+        }
+        clienti[nrClienti++] = c;
+    }
+
+    public void afisareClient(String nume) {
+        for (int i = 0; i < nrClienti; i++) {
+            if (clienti[i].getNume().equals(nume)) {
+                clienti[i].afisare();
+                return;
+            }
+        }
+        System.out.println("Clientul nu a fost găsit.");
+    }
+}
